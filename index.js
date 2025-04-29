@@ -112,20 +112,13 @@ $(document).on("keypress", function () {
 });
 
 function nextSequence() {
-  userClickPattern = [];
-
   level++;
   $("h1").text("Level " + level);
 
   console.log(Math.floor(Math.random() * 4));
-  let randomNumber = Math.floor(Math.random() * 4);
+  let randomNumber = Math.floor(Math.random() * 4) + 1;
   let randomChosenColour = buttonColour[randomNumber];
   gamePattern.push(randomChosenColour);
-
-  $("#" + randomChosenColour)
-    .fadeIn(100)
-    .fadeOut(100)
-    .fadeIn(100);
 }
 
 $(".btn").on("click", function () {
@@ -133,7 +126,6 @@ $(".btn").on("click", function () {
 
   userClickPattern.push(userChosenColour);
   console.log(userClickPattern);
-  checkAnswer(userClickPattern.length - 1);
 });
 
 greenPush();
